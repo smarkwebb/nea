@@ -1,0 +1,4 @@
+link_id=door2
+object_id=key2
+x=80
+y=300

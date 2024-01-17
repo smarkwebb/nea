@@ -1,0 +1,5 @@
+function=open
+link_id=door1
+object_id=switch1
+x=1180
+y=385

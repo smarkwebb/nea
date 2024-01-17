@@ -1,0 +1,8 @@
+length=1280
+object_id=platform1
+rgb_b=50
+rgb_g=50
+rgb_r=50
+width=15
+x=0
+y=15

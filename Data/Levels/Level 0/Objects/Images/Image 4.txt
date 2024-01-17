@@ -1,0 +1,6 @@
+image_id=character4
+object_id=image4
+path=./Assets/Sprites/Charles LOCKED.png
+scale=1.2
+x=455
+y=200

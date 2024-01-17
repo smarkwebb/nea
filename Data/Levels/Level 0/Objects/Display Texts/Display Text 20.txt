@@ -1,0 +1,8 @@
+bg_colour=(0, 0, 0)
+fg_colour=(255, 255, 255)
+font_size=30
+function=score8
+object_id=display_text20
+text=None
+x=950
+y=650

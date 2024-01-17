@@ -1,0 +1,6 @@
+function=play
+height=140
+object_id=click_button1
+width=40
+x=20
+y=50

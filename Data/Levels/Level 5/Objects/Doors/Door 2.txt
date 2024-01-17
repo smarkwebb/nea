@@ -1,0 +1,4 @@
+height=120
+object_id=door2
+x=1280
+y=200

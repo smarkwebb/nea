@@ -1,0 +1,71 @@
+import pygame
+from Classes.Entity import Entity
+
+
+class Player(Entity):
+    def __init__(self, object_id, x, y, attributes):
+        super().__init__(object_id, x, y, attributes)
+        self.group = "players"
+
+        self.surf = pygame.image.load("./Assets/Sprites/Player.png")
+        self.surf_size = 30
+        self.rect = self.surf.get_rect(bottomleft=(int(x), int(y)))
+
+        self.attack_damage = 25
+        self.health = 100
+        self.jump_height = 20
+        self.keys_collected = 0
+        self.max_scale = 3
+        self.min_scale = 0.5
+        self.movement_speed = 4
+        self.scale = 1
+
+    def check_enemy(self, group_handler):
+        if group_handler.enemies:
+            if pygame.sprite.groupcollide(group_handler.players, group_handler.enemies, False, False):
+                for enemy in group_handler.enemies:
+                    if self.rect.colliderect(enemy.rect):
+                        self.attack(enemy)
+
+    def get_input(self):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
+            self.jump()
+        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+            self.direction == "left"
+        if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+            self.direction == "right"
+            self.move()
+        if keys[pygame.K_e]:
+            self.interact()
+        if keys[pygame.K_k]:
+            self.health = 0
+
+    def interact(self):
+        pass
+
+    def jump(self):
+        if self.rect.bottom == 720 or self.on_platform:
+            self.gravity = self.jump_height
+
+    def move(self):
+        if self.direction == "left":
+            print(1)
+            if self.rect.left >= 0:
+                print(2)
+                self.rect.x -= self.movement_speed
+                print(3)
+        if self.direction == "right":
+            if self.rect.right <= 1280:
+                self.rect.x += self.movement_speed
+
+    def update(self, group_handler):
+        self.apply_gravity()
+        self.get_input()
+        self.check_block(group_handler)
+        self.check_enemy(group_handler)
+        self.check_platform(group_handler)
+        self.check_invincibility()
+        self.check_walls(group_handler)
+        print(self.on_platform)

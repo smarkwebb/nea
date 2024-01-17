@@ -1,0 +1,13 @@
+axis=y
+end=200
+length=200
+movement_speed=2
+moving=False
+object_id=moving_platform6
+rgb_b=0
+rgb_g=0
+rgb_r=255
+start=720
+width=15
+x=15
+y=720

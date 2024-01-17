@@ -1,0 +1,6 @@
+image_id=character7
+object_id=image7
+path=./Assets/Sprites/Sam UNLOCKED.png
+scale=1.2
+x=655
+y=200

@@ -1,0 +1,6 @@
+image_id=character2
+object_id=image2
+path=./Assets/Sprites/Robin LOCKED.png
+scale=1.2
+x=255
+y=200

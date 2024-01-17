@@ -1,0 +1,5 @@
+function=spawn
+link_id=block1
+object_id=button1
+x=1180
+y=380

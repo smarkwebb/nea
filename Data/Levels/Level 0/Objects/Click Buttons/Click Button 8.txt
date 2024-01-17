@@ -1,0 +1,6 @@
+function=level2
+height=90
+object_id=click_button8
+width=35
+x=20
+y=440

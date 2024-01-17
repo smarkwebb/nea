@@ -1,0 +1,5 @@
+function=open
+link_id=door1
+object_id=pressure_plate1
+x=300
+y=705

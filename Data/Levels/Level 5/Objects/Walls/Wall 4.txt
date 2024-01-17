@@ -1,0 +1,8 @@
+height=400
+object_id=wall4
+rgb_b=150
+rgb_g=150
+rgb_r=150
+width=15
+x=200
+y=590

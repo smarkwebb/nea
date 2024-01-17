@@ -1,0 +1,6 @@
+hidden=False
+object_id=block2
+size=100
+suspended=False
+x=600
+y=705

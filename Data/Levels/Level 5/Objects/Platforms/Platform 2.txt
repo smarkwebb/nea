@@ -1,0 +1,8 @@
+length=200
+object_id=platform2
+rgb_b=150
+rgb_g=150
+rgb_r=150
+width=15
+x=15
+y=200

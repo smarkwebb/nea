@@ -1,0 +1,13 @@
+axis=x
+end=687
+length=150
+movement_speed=2
+moving=True
+object_id=moving_platform3
+rgb_b=255
+rgb_g=0
+rgb_r=0
+start=463
+width=15
+x=575
+y=546

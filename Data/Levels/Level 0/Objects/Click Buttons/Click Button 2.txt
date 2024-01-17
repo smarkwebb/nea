@@ -1,0 +1,6 @@
+function=quit
+height=140
+object_id=click_button2
+width=40
+x=250
+y=50

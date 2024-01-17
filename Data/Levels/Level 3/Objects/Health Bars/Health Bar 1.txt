@@ -1,0 +1,4 @@
+link_id=player
+object_id=health_bar1
+x=1060
+y=20

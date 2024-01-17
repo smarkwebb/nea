@@ -1,0 +1,8 @@
+height=535
+object_id=wall2
+rgb_b=50
+rgb_g=50
+rgb_r=50
+width=15
+x=1265
+y=720

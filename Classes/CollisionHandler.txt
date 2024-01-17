@@ -1,0 +1,60 @@
+import pygame
+
+
+class CollisionHandler:
+    def __init__(self):
+        super().__init__()
+        self.collisions = []
+
+    def update(self, group_handler):
+        self.check_collisions(group_handler)
+
+    def check_collisions(self, group_handler):
+        if group_handler.enemies and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.enemies, group_handler.players, False, False):
+                for enemy in group_handler.enemies:
+                    for player in group_handler.players:
+                        if enemy.rect.colliderect(player.rect):
+                            self.collisions.append((enemy, player))
+
+        if group_handler.platforms and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.platforms, group_handler.players, False, False):
+                for platform in group_handler.platforms:
+                    for player in group_handler.players:
+                        if platform.rect.colliderect(player.rect):
+                            self.collisions.append((platform, player))
+
+        if group_handler.enemies and group_handler.platforms:
+            if pygame.sprite.groupcollide(group_handler.enemies, group_handler.platforms, False, False):
+                for enemy in group_handler.enemies:
+                    for platform in group_handler.platforms:
+                        if enemy.rect.colliderect(platform.rect):
+                            self.collisions.append((enemy, platform))
+
+        if group_handler.buttons and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.buttons, group_handler.players, False, False):
+                for button in group_handler.buttons:
+                    for player in group_handler.players:
+                        if button.rect.colliderect(player.rect):
+                            self.collisions.append((button, player))
+
+        if group_handler.keys and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.keys, group_handler.players, False, False):
+                for key in group_handler.keys:
+                    for player in group_handler.players:
+                        if key.rect.colliderect(player.rect):
+                            self.collisions.append((key, player))
+
+        if group_handler.walls and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.walls, group_handler.players, False, False):
+                for wall in group_handler.walls:
+                    for player in group_handler.players:
+                        if wall.rect.colliderect(player.rect):
+                            self.collisions.append((player, wall))
+
+        for object in self.collisions:
+            if not object[0].rect.colliderect(object[1].rect):
+                self.collisions.remove((object[0], object[1]))
+
+    def get_collisions(self):
+        return self.collisions

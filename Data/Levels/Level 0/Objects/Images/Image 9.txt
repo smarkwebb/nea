@@ -1,0 +1,6 @@
+image_id=level2
+object_id=image6
+path=./Assets/Level Previews/Level 2.png
+scale=0.6
+x=150
+y=700

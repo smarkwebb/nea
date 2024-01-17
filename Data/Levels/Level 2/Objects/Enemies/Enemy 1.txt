@@ -1,0 +1,8 @@
+attack_damage=25
+health=50
+invincible=False
+movement_speed=2
+object_id=enemy1
+scale=1
+x=1280
+y=720

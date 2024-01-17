@@ -1,0 +1,6 @@
+image_id=level8
+object_id=image12
+path=./Assets/Level Previews/Level 8.png
+scale=0.6
+x=150
+y=700

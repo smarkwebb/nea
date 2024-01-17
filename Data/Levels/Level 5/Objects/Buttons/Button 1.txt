@@ -1,0 +1,5 @@
+function=move
+link_id=moving_platform6
+object_id=button1
+x=75
+y=660

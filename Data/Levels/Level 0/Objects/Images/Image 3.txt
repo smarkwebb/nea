@@ -1,0 +1,6 @@
+image_id=character3
+object_id=image3
+path=./Assets/Sprites/Robin UNLOCKED.png
+scale=1.2
+x=255
+y=200

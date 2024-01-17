@@ -1,0 +1,8 @@
+height=370
+object_id=wall3
+rgb_b=150
+rgb_g=150
+rgb_r=150
+width=15
+x=280
+y=385

@@ -1,0 +1,71 @@
+import pygame
+
+
+class Button(pygame.sprite.Sprite):
+    def __init__(self, **kwargs):
+        super().__init__()
+
+        # Custom config
+        for arg, par in kwargs.items():
+            try:
+                setattr(self, arg, float(par))
+            except:
+                if par == "True":
+                    setattr(self, arg, True)
+                elif par == "False":
+                    setattr(self, arg, False)
+                else:
+                    setattr(self, arg, par)
+
+        # Default config
+        self.surf = pygame.image.load("./Assets/Sprites/Button.png")
+        self.rect = self.surf.get_rect(bottomleft=(int(self.x), int(self.y)))
+
+        self.last_pressed = pygame.time.get_ticks()
+        self.state = 0
+
+    def change_state(self):
+        if self.type == "hold":
+            self.state = 1
+        if self.type == "toggle":
+            if pygame.time.get_ticks() - self.last_pressed > 1000:
+                if self.state == 0:
+                    self.state = 1
+                else:
+                    self.state = 0
+                self.last_pressed = pygame.time.get_ticks()
+
+    def check_pressed(self, group_handler):
+        if group_handler.players and group_handler.buttons:
+            if pygame.sprite.groupcollide(group_handler.players, group_handler.buttons, False, False):
+                for player in group_handler.players:
+                    if self.rect.colliderect(player.rect):
+                        self.change_state()
+            else:
+                if self.type == "hold":
+                    self.state = 0
+
+    def update(self, group_handler):
+        self.check_pressed(group_handler)
+
+        if self.link_id == "door1":
+            if group_handler.doors:
+                for door in group_handler.doors:
+                    if self.link_id == door.object_id:
+                        if self.state == 1:
+                            if self.function == "open":
+                                door.open()
+                            if self.function == "close":
+                                door.close()
+
+        if self.link_id == "player":
+            if group_handler.players:
+                for player in group_handler.players:
+                    if self.link_id == player.object_id:
+                        if self.state == 1:
+                            if self.function == "scale_up":
+                                new_scale = player.scale + 0.1
+                                player.change_scale(new_scale)
+                            if self.function == "scale_down":
+                                new_scale = player.scale - 0.1
+                                player.change_scale(new_scale)

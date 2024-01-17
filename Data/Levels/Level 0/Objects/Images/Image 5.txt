@@ -1,0 +1,6 @@
+image_id=character5
+object_id=image5
+path=./Assets/Sprites/Charles UNLOCKED.png
+scale=1.2
+x=455
+y=200

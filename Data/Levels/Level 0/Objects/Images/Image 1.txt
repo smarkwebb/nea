@@ -1,0 +1,6 @@
+image_id=character1
+object_id=image1
+path=./Assets/Sprites/Bob UNLOCKED.png
+scale=1.2
+x=55
+y=200

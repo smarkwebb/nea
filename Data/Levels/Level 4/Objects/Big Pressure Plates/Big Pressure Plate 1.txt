@@ -1,0 +1,5 @@
+function=spawn
+link_id=block1
+object_id=big_pressure_plate1
+x=1000
+y=705

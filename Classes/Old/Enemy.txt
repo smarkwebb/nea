@@ -1,0 +1,44 @@
+import pygame
+from Classes.Entity import Entity
+
+
+class Enemy(Entity):
+    def __init__(self, object_id, x, y, attributes):
+        super().__init__(object_id, x, y, attributes)
+        self.group = "enemies"
+
+        self.surf = pygame.image.load("./Assets/Sprites/Enemy.png")
+        self.rect = self.surf.get_rect(bottomleft=(int(x), int(y)))
+
+        self.attack_damage = 25
+        self.health = 50
+        self.jump_height = 15
+        self.movement_speed = 3
+
+    def check_player(self, group_handler):
+        if group_handler.enemies and group_handler.players:
+            if pygame.sprite.groupcollide(group_handler.players, group_handler.enemies, False, False):
+                for player in group_handler.players:
+                    if self.rect.colliderect(player.rect):
+                        self.attack(player)
+
+    def move(self):
+        if self.direction == "left":
+            if self.rect.left <= 0:
+                self.direction = "right"
+            else:
+                self.rect.x -= self.movement_speed
+        if self.direction == "right":
+            if self.rect.right >= 1280:
+                self.direction = "left"
+            else:
+                self.rect.x += self.movement_speed
+
+    def update(self, group_handler):
+        self.apply_gravity()
+        self.check_block(group_handler)
+        self.check_platform(group_handler)
+        self.check_player(group_handler)
+        self.check_invincibility()
+        self.check_walls(group_handler)
+        self.move()

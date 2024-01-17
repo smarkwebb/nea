@@ -1,0 +1,8 @@
+bg_colour=(0, 0, 0)
+fg_colour=(255, 255, 255)
+font_size=25
+function=character1
+object_id=display_text3
+text=Bob
+x=75
+y=230

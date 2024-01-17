@@ -1,0 +1,5 @@
+function=scale_up
+link_id=player
+object_id=button1
+x=200
+y=690

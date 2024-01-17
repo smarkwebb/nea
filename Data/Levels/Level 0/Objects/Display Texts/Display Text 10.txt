@@ -1,0 +1,8 @@
+bg_colour=(0, 0, 0)
+fg_colour=(255, 255, 255)
+font_size=35
+function=level4
+object_id=display_text10
+text=Level 4
+x=20
+y=600

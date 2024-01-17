@@ -1,0 +1,6 @@
+function=character3
+height=120
+object_id=click_button5
+width=120
+x=430
+y=200
