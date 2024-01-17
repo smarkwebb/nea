@@ -35,7 +35,7 @@ class Menu:
                     return None
 
         # Update 'CurrentCharacter.txt'
-        file = open("./Data/Levels/CurrentCharacter.txt", "w")
+        file = open("./Data/Players/CurrentCharacter.txt", "w")
         file.write(str(character))
         file.close()
 
