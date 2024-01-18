@@ -22,7 +22,12 @@ class User:
     def login(self):
         Database.create_table(self, "./Data/Players/Users.db", "users",
                               "username STRING, password STRING, characters INTEGER, levels INTEGER")
+
+        # Check valid username entered
         username = input("Enter username: ")
+        if len(username) < 3 or len(username) > 12:
+            print("Username length invalid")
+            return None
 
         # Check 'Users.db' for existing users
         users = Database.get_data(

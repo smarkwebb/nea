@@ -21,8 +21,11 @@ clock = pygame.time.Clock()
 group_handler.create_groups(0)
 group_handler.create_objects(0)
 
-username = user.login()
-user_data = user.get_data(username)
+username = None
+while not username:
+    username = user.login()
+
+user_data = user.get_data(user.get_username())
 
 # Game loop
 running = True
