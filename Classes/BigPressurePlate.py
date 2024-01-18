@@ -26,7 +26,7 @@ class BigPressurePlate(PressurePlate):
         self.state = 0
 
     def check_entities(self, group_handler):
-        if group_handler.blocks:
+        if group_handler.big_pressure_plates and group_handler.blocks:
             if pygame.sprite.groupcollide(group_handler.big_pressure_plates, group_handler.blocks, False, False):
                 for block in group_handler.blocks:
                     if self.rect.colliderect(block.rect):
