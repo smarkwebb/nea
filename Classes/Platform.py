@@ -22,5 +22,5 @@ class Platform(pygame.sprite.Sprite):
         self.surf.fill((self.rgb_r, self.rgb_g, self.rgb_b))
         self.rect = self.surf.get_rect(bottomleft=(int(self.x), int(self.y)))
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

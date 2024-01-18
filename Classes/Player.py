@@ -21,6 +21,7 @@ class Player(pygame.sprite.Sprite):
         file = open("./Data/Players/CurrentCharacter.txt", "r")
         character = file.readlines()
         character = str(character[0])
+        print(character)
         self.surf = pygame.image.load(
             f"./Assets/Sprites/{character}.png").convert_alpha()
         self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
@@ -174,7 +175,7 @@ class Player(pygame.sprite.Sprite):
         if self.direction == "right":
             self.rect.x += self.movement_speed
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         self.get_input(group_handler)
         self.apply_gravity()
         self.check_block(group_handler)

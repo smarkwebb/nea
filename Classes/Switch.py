@@ -49,5 +49,5 @@ class Switch(pygame.sprite.Sprite):
             self.surf = pygame.image.load(
                 "./Assets/Sprites/Switch OFF.png").convert_alpha()
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

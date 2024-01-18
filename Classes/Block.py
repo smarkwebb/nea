@@ -51,7 +51,7 @@ class Block(pygame.sprite.Sprite):
         self.hidden = False
         self.surf = pygame.Surface((int(self.size), int(self.size)))
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         self.check_platform(group_handler)
 
         if self.hidden:

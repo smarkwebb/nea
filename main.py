@@ -34,8 +34,8 @@ while running:
             menu.mouse_event(database, game, group_handler, score_handler, user)
 
     game.update(database, group_handler, score_handler, user)
-    group_handler.update(group_handler)
-    menu.update(group_handler)
+    group_handler.update(group_handler, score_handler)
+    menu.update(group_handler, score_handler)
     score_handler.update()
 
     # Blit objects onto screen

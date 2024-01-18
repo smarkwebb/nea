@@ -52,6 +52,6 @@ class MovingPlatform(Platform):
                 else:
                     self.rect.y += self.movement_speed
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         if self.moving:
             self.move()

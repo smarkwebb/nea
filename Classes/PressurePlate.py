@@ -71,6 +71,6 @@ class PressurePlate(pygame.sprite.Sprite):
                             else:
                                 door.close()
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         self.check_entities(group_handler)
         self.interact(group_handler)

@@ -32,5 +32,5 @@ class ClickButton(pygame.sprite.Sprite):
     def interact(self):
         pass
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

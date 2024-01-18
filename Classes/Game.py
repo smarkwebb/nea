@@ -49,6 +49,7 @@ class Game:
         file.close()
 
         # Generate next level
+        score_handler.reset_score()
         current_level += 1
         self.generate_level(group_handler, current_level)
         return current_level

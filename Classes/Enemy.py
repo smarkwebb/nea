@@ -85,7 +85,7 @@ class Enemy(pygame.sprite.Sprite):
             else:
                 self.rect.x += self.movement_speed
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         self.move()
         self.apply_gravity()
         self.check_health(group_handler)

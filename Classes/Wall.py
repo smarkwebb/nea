@@ -22,5 +22,5 @@ class Wall(pygame.sprite.Sprite):
         self.surf.fill((self.rgb_r, self.rgb_g, self.rgb_g))
         self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

@@ -22,7 +22,7 @@ class HealthBar(pygame.sprite.Sprite):
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect(topleft=(0, 0))
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         if self.link_id == "player":
             if group_handler.players:
                 for player in group_handler.players:

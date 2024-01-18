@@ -41,7 +41,7 @@ class Key(pygame.sprite.Sprite):
             if player.direction == "left":
                 self.rect.x = player.rect.x + 50
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         self.check_player(group_handler)
 
         if self.collected:

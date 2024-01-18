@@ -35,5 +35,5 @@ class Door(pygame.sprite.Sprite):
         self.rect = self.surf.get_rect(bottomright=(int(self.x), int(self.y)))
         self.status = "open"
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

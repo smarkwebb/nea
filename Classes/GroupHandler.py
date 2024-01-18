@@ -78,10 +78,10 @@ class GroupHandler:
             if self.group_vars[group]:
                 self.group_vars[group] = None
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         for group in range(0, len(self.groups)):
             if self.group_vars[group] != None:
-                self.group_vars[group].update(group_handler)
+                self.group_vars[group].update(group_handler, score_handler)
 
         self.big_pressure_plates = self.group_vars[0]
         self.blocks = self.group_vars[1]

@@ -61,5 +61,5 @@ class Button(pygame.sprite.Sprite):
                                 new_scale = player.min_scale
                                 player.change_scale(new_scale)
 
-    def update(self, group_handler):
+    def update(self, group_handler, score_handler):
         pass

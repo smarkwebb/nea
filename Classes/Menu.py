@@ -71,7 +71,7 @@ class Menu:
         # Start level
         game.generate_level(group_handler, level)
 
-    def hover_preview(self, group_handler):
+    def hover_preview(self, group_handler, score_handler):
         # Displays level previews on hover
         pos = pygame.mouse.get_pos()
         if group_handler.click_buttons:
@@ -81,15 +81,15 @@ class Menu:
                         if button.function == f"level{index}":
                             for text in group_handler.display_texts:
                                 if "score" in text.function:
-                                    text.show(index)
+                                    text.show(index, score_handler)
                             for image in group_handler.images:
                                 if "level" in image.image_id:
                                     image.hide()
                                 if image.image_id == f"level{index}":
                                     image.show()
 
-    def update(self, group_handler):
-        self.hover_preview(group_handler)
+    def update(self, group_handler, score_handler):
+        self.hover_preview(group_handler, score_handler)
 
         if group_handler.images:
             for image in group_handler.images:
