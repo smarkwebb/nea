@@ -31,7 +31,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            menu.mouse_event(game, group_handler, score_handler, user)
+            menu.mouse_event(database, game, group_handler, score_handler, user)
 
     game.update(database, group_handler, score_handler, user)
     group_handler.update(group_handler)

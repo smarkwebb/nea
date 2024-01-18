@@ -4,19 +4,32 @@ from Classes.GroupHandler import GroupHandler
 from Classes.ScoreHandler import ScoreHandler
 from Classes.User import User
 import pygame
+import sys
 
 
 class Menu:
     def __init__(self):
         pass
 
-    def mouse_event(self, game, group_handler, score_handler, user):
+    def mouse_event(self, database, game, group_handler, score_handler, user):
         # Handles mouse events
         pos = pygame.mouse.get_pos()
 
         if group_handler.click_buttons:
             for button in group_handler.click_buttons:
                 if button.check_pressed(pos):
+                    if button.function == "play":
+                        file = open("Data/Players/CurrentCharacter.txt", "r")
+                        character = file.readlines()[0]
+                        file.close()
+                        if character in ("Bob UNLOCKED", "Charles UNLOCKED", "Robin UNLOCKED", "Sam UNLOCKED"):
+                            file = open("Data/Levels/CurrentLevel.txt", "r")
+                            level = file.readlines()[0]
+                            file.close()
+                            if level:
+                                game.next_level(database, group_handler, score_handler, user)
+                    if button.function == "quit":
+                        sys.exit()
                     if "character" in button.function:
                         self.select_character(button.function, user)
                     if "level" in button.function:
