@@ -41,6 +41,12 @@ while running:
     menu.update(group_handler, score_handler)
     score_handler.update()
 
+    # Check player death
+    if group_handler.players:
+        for player in group_handler.players:
+            if player.health <= 0:
+                running = False
+
     # Blit objects onto screen
     screen.fill((255, 255, 255))
     for group in range(0, len(group_handler.groups)):
