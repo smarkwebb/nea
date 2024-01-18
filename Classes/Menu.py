@@ -9,7 +9,7 @@ import sys
 
 class Menu:
     def __init__(self):
-        pass
+        self.hidden_on_start = False
 
     def mouse_event(self, database, game, group_handler, score_handler, user):
         # Handles mouse events
@@ -89,9 +89,16 @@ class Menu:
                                     image.show()
 
     def update(self, group_handler, score_handler):
-        self.hover_preview(group_handler, score_handler)
+        if not self.hidden_on_start:
+            if group_handler.display_texts:
+                for text in group_handler.display_texts:
+                    if "score" in text.function:
+                        text.hide()
+            self.hidden_on_start = True
 
         if group_handler.images:
             for image in group_handler.images:
                 if "character" in image.image_id:
                     image.show()
+
+        self.hover_preview(group_handler, score_handler)
