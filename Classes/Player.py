@@ -100,9 +100,10 @@ class Player(pygame.sprite.Sprite):
             if pygame.sprite.groupcollide(group_handler.players, group_handler.platforms, False, False):
                 for platform in group_handler.platforms:
                     if self.rect.colliderect(platform.rect):
-                        self.rect.bottom = platform.rect.y
-                        self.gravity = 0
-                        self.on_platform = True
+                        if self.rect.bottom > platform.rect.top:
+                            self.rect.bottom = platform.rect.y
+                            self.gravity = 0
+                            self.on_platform = True
             else:
                 self.on_platform = False
 
@@ -121,6 +122,10 @@ class Player(pygame.sprite.Sprite):
                             self.rect.x += platform.movement_speed
             else:
                 self.on_platform = False
+    
+    def check_on_level(self):
+        if self.rect.y < 0:
+            self.health = 0
 
     def check_walls(self, group_handler):
         if group_handler.walls:
@@ -192,5 +197,6 @@ class Player(pygame.sprite.Sprite):
         self.check_doors(group_handler)
         self.check_platform(group_handler)
         self.check_moving_platform(group_handler)
+        self.check_on_level()
         self.check_invincibility()
         self.check_walls(group_handler)
