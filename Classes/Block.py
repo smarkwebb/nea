@@ -58,4 +58,4 @@ class Block(pygame.sprite.Sprite):
             self.hide()
 
         if not self.suspended:
-            self.apply_gravity()
+            self.apply_gravity()   

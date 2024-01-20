@@ -59,7 +59,6 @@ class Player(pygame.sprite.Sprite):
         if group_handler.blocks:
             if pygame.sprite.groupcollide(group_handler.players, group_handler.blocks, False, False):
                 for block in group_handler.blocks:
-                    print(self.rect.bottom, block.object_id, block.rect.top)
                     if self.rect.colliderect(block.rect):
                         # Check if player is on top of block
                         if self.rect.bottom <= block.rect.top + 20:
