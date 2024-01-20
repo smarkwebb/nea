@@ -38,12 +38,9 @@ class User:
 
         # Create new user if not already exists
         if not user_exists:
-            create = input(
-                f"User account {username} does not exist, would you like to create one?\n")
-            if create.lower() == "yes":
-                Database.insert_value(self, "./Data/Players/Users.db",
+            Database.insert_value(self, "./Data/Players/Users.db",
                                       "users", username, "password", 1, 1)
-                print(f"User account {username} created")
+            print(f"User account {username} created!")
 
         # Update 'CurrentUser.txt'
         file = open("./Data/Players/CurrentUser.txt", "w")
