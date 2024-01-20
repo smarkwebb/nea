@@ -162,10 +162,13 @@ class Player(pygame.sprite.Sprite):
             if pygame.sprite.groupcollide(group_handler.players, group_handler.doors, False, False):
                 for door in group_handler.doors:
                     if self.rect.colliderect(door.rect):
-                        for key in group_handler.keys:
-                            if key.collected:
-                                if door.object_id == key.link_id:
-                                    door.open()
+                        if door.requires_key:
+                            for key in group_handler.keys:
+                                if key.collected:
+                                    if door.object_id == key.link_id:
+                                        door.open()
+                        else:
+                            door.open()
 
         if group_handler.switches:
             if pygame.sprite.groupcollide(group_handler.players, group_handler.switches, False, False):

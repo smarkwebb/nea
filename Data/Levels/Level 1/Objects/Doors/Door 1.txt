@@ -1,4 +1,5 @@
 height=120
 object_id=door1
+requires_key=True
 x=1280
 y=720
