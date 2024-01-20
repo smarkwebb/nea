@@ -27,7 +27,7 @@ class Menu:
                             level = file.readlines()[0]
                             file.close()
                             if level:
-                                game.next_level(database, group_handler, score_handler, user)
+                                game.generate_level(group_handler, level, score_handler)
                     if button.function == "quit":
                         sys.exit()
                     if "character" in button.function:
