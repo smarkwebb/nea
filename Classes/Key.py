@@ -25,7 +25,7 @@ class Key(pygame.sprite.Sprite):
         self.collected = False
 
     def check_player(self, group_handler):
-        if group_handler.players:
+        if group_handler.keys and group_handler.players:
             if pygame.sprite.groupcollide(group_handler.keys, group_handler.players, False, False):
                 for player in group_handler.players:
                     if self.rect.colliderect(player.rect):
