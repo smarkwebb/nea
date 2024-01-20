@@ -21,7 +21,6 @@ class Player(pygame.sprite.Sprite):
         file = open("./Data/Players/CurrentCharacter.txt", "r")
         character = file.readlines()
         character = str(character[0])
-        print(character)
         self.surf = pygame.image.load(
             f"./Assets/Sprites/{character}.png").convert_alpha()
         self.rect = self.surf.get_rect(bottomleft=(self.x, self.y))
@@ -59,19 +58,27 @@ class Player(pygame.sprite.Sprite):
         if group_handler.blocks:
             if pygame.sprite.groupcollide(group_handler.players, group_handler.blocks, False, False):
                 for block in group_handler.blocks:
+                    print(self.rect.bottom, block.object_id, block.rect.top)
                     if self.rect.colliderect(block.rect):
-                        if self.size >= block.size:
-                            if self.direction == "right":
-                                block.rect.left = self.rect.right
-                            if self.direction == "left":
-                                block.rect.right = self.rect.left
+                        # Check if player is on top of block
+                        if self.rect.bottom <= block.rect.top + 20:
+                            self.rect.bottom = block.rect.top
+                            self.gravity = 0
+                            self.on_block = True
                         else:
-                            if self.rect.right > block.rect.left and self.direction == "right":
-                                self.rect.right = block.rect.left
-                            elif self.rect.left < block.rect.right and self.direction == "left":
-                                self.rect.left = block.rect.right
+                            # Check if player can push block
+                            if self.size >= block.size:
+                                if self.direction == "right":
+                                    block.rect.left = self.rect.right
+                                if self.direction == "left":
+                                    block.rect.right = self.rect.left
+                            else:
+                                if self.rect.right > block.rect.left and self.direction == "right":
+                                    self.rect.right = block.rect.left
+                                elif self.rect.left < block.rect.right and self.direction == "left":
+                                    self.rect.left = block.rect.right
             else:
-                self.on_platform = False
+                self.on_block = False
 
     def check_doors(self, group_handler):
         if group_handler.doors:
@@ -166,7 +173,7 @@ class Player(pygame.sprite.Sprite):
                         switch.flip(group_handler)
 
     def jump(self):
-        if self.rect.bottom == 720 or self.on_platform:
+        if self.rect.bottom == 720 or self.on_block or self.on_platform:
             self.gravity = self.jump_height
 
     def move(self):
