@@ -88,7 +88,7 @@ class Menu:
                                 if image.image_id == f"level{index}":
                                     image.show()
 
-    def update(self, group_handler, score_handler):
+    def update(self, group_handler, score_handler, user):
         if not self.hidden_on_start:
             if group_handler.display_texts:
                 for text in group_handler.display_texts:
@@ -99,6 +99,18 @@ class Menu:
         if group_handler.images:
             for image in group_handler.images:
                 if "character" in image.image_id:
-                    image.show()
+                    user_data = user.get_data(user.get_username())
+                    if user_data[2] == 1:
+                        if int(image.image_id[-1]) in (1, 2, 4, 6):
+                            image.show()
+                    if user_data[2] == 2:
+                        if int(image.image_id[-1]) in (1, 3, 4, 6):
+                            image.show()
+                    if user_data[2] == 3:
+                        if int(image.image_id[-1]) in (1, 3, 5, 6):
+                            image.show()
+                    if user_data[2] >= 4:
+                        if int(image.image_id[-1]) in (1, 3, 5, 7):
+                            image.show()
 
         self.hover_preview(group_handler, score_handler)
