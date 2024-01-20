@@ -8,8 +8,9 @@ class Game:
     def __init__(self):
         pass
 
-    def generate_level(self, group_handler, level):
+    def generate_level(self, group_handler, level, score_handler):
         # Create groups and generate objects for level
+        score_handler.reset_score()
         group_handler.reset_groups()
         group_handler.create_groups(level)
         group_handler.create_objects(level)
@@ -49,9 +50,8 @@ class Game:
         file.close()
 
         # Generate next level
-        score_handler.reset_score()
         current_level += 1
-        self.generate_level(group_handler, current_level)
+        self.generate_level(group_handler, current_level, score_handler)
         return current_level
     
     def update(self, database, group_handler, score_handler, user):

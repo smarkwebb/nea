@@ -33,7 +33,7 @@ class Menu:
                     if "character" in button.function:
                         self.select_character(button.function, user)
                     if "level" in button.function:
-                        self.select_level(button.function, game, group_handler, user)
+                        self.select_level(button.function, game, group_handler, score_handler, user)
 
     def select_character(self, function, user):
         user_data = user.get_data(user.get_username())
@@ -52,7 +52,7 @@ class Menu:
         file.write(str(character))
         file.close()
 
-    def select_level(self, function, game, group_handler, user):
+    def select_level(self, function, game, group_handler, score_handler, user):
         user_data = user.get_data(user.get_username())
 
         # Check 'Users.db' database
@@ -69,7 +69,7 @@ class Menu:
         file.close()
 
         # Start level
-        game.generate_level(group_handler, level)
+        game.generate_level(group_handler, level, score_handler)
 
     def hover_preview(self, group_handler, score_handler):
         # Displays level previews on hover

@@ -6,8 +6,8 @@ import sqlite3
 class ScoreHandler:
     def __init__(self):
         super().__init__()
-        self.old_score = 0
-        self.current_score = pygame.time.get_ticks() - self.old_score
+        self.old_scores = []
+        self.current_score = pygame.time.get_ticks() - sum(self.old_scores)
 
     def clear_scores(self):
         pass
@@ -25,12 +25,13 @@ class ScoreHandler:
         return scores """
 
     def update(self):
-        self.current_score = pygame.time.get_ticks() - self.old_score
+        print(self.old_scores)
+        self.current_score = pygame.time.get_ticks() - sum(self.old_scores)
         # print(f"current score {self.current_score} old score {self.old_score}"
 
     def reset_score(self):
-        self.old_score = self.current_score
-        return self.old_score
+        self.old_scores.append(self.current_score)
+        return self.old_scores
         # print("Score reset! old score", self.old_score)
 
     def write_score(self, current_level):
