@@ -1,6 +1,6 @@
 *.pyc
 *.db
 __pycache__/
-Data/Levels/CurrentLevel.txt
-Data/Players/CurentCharacter.txt
-Data/Players/CurrentUser.txt
+Data/Levels/CurrentLevel.txt/
+Data/Players/CurentCharacter.txt/
+Data/Players/CurrentUser.txt/
