@@ -33,10 +33,14 @@ class DisplayText(pygame.sprite.Sprite):
         if field:
             database = Database()
             data = database.get_data(
-                "./Data/Players/Scores.db", "level2", None)
-            score = data[field]
-            self.surf = self.font.render(f"{score[0]}: {score[1]}", False, (int(self.bg_list[0]), int(
-                self.bg_list[1]), int(self.bg_list[2])), (int(self.fg_list[0]), int(self.fg_list[1]), int(self.fg_list[2])))
+                "./Data/Players/Scores.db", "level1", None)
+            try:
+                score = data[field]
+                self.surf = self.font.render(f"{score[0]}: {score[1]}", False, (int(self.bg_list[0]), int(
+                    self.bg_list[1]), int(self.bg_list[2])), (int(self.fg_list[0]), int(self.fg_list[1]), int(self.fg_list[2])))
+            except:
+                self.surf = self.font.render(f"None", False, (int(self.bg_list[0]), int(
+                    self.bg_list[1]), int(self.bg_list[2])), (int(self.fg_list[0]), int(self.fg_list[1]), int(self.fg_list[2])))
         elif self.function == "current_score":
             self.surf = self.font.render(f"{pygame.time.get_ticks()}", False, (int(self.bg_list[0]), int(
                 self.bg_list[1]), int(self.bg_list[2])), (int(self.fg_list[0]), int(self.fg_list[1]), int(self.fg_list[2])))

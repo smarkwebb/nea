@@ -4,10 +4,14 @@ import sqlite3
 
 
 class ScoreHandler:
-    def __init__(self):
+    def __init__(self, database):
         super().__init__()
         self.old_scores = []
         self.current_score = pygame.time.get_ticks() - sum(self.old_scores)
+
+        # Create level tables
+        for index in range(1,7):
+            database.create_table("./Data/Players/Scores.db", f"level{index}", "username STRING, score INTEGER")
 
     def clear_scores(self):
         pass

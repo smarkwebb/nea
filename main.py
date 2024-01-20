@@ -11,7 +11,7 @@ database = Database()
 game = Game()
 group_handler = GroupHandler()
 menu = Menu()
-score_handler = ScoreHandler()
+score_handler = ScoreHandler(database)
 user = User()
 
 pygame.init()
