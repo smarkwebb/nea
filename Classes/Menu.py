@@ -113,4 +113,21 @@ class Menu:
                         if int(image.image_id[-1]) in (1, 3, 5, 7):
                             image.show()
 
+        if group_handler.display_texts:
+            for text in group_handler.display_texts:
+                if "locked" in text.function:
+                    user_data = user.get_data(user.get_username())
+                    if user_data[3] == 2:
+                        if text.function in ("locked1"):
+                            text.hide()
+                    if user_data[3] == 3:
+                        if text.function in ("locked1", "locked2"):
+                            text.hide()
+                    if user_data[3] == 4:
+                        if text.function in ("locked1", "locked2", "locked3"):
+                            text.hide()
+                    if user_data[3] >= 5:
+                        if text.function in ("locked1", "locked2", "locked3", "locked4"):
+                            text.hide()
+
         self.hover_preview(group_handler, score_handler)

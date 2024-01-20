@@ -57,7 +57,7 @@ class GroupHandler:
 
     def create_objects(self, current_level):
         for group in range(0, len(self.groups)):
-            for file in range(20):
+            for file in range(50):
                 path = f"./Data/Levels/Level {current_level}/Objects/{self.handles[group]} {file}.txt"
                 if os.path.isfile(path):
                     file = open(path)

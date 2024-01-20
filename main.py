@@ -38,7 +38,7 @@ while running:
 
     game.update(database, group_handler, score_handler, user)
     group_handler.update(group_handler, score_handler)
-    menu.update(group_handler, score_handler)
+    menu.update(group_handler, score_handler, user)
     score_handler.update()
 
     # Check player death
