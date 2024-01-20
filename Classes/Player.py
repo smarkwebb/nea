@@ -30,6 +30,7 @@ class Player(pygame.sprite.Sprite):
         self.gravity = 0
         self.keys_collected = 0
         self.last_damaged = pygame.time.get_ticks()
+        self.on_block = False
         self.on_platform = False
 
     def apply_gravity(self):
