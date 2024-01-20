@@ -29,7 +29,6 @@ class ScoreHandler:
         return scores """
 
     def update(self):
-        print(self.old_scores)
         self.current_score = pygame.time.get_ticks() - sum(self.old_scores)
         # print(f"current score {self.current_score} old score {self.old_score}"
 
