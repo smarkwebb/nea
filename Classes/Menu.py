@@ -51,7 +51,7 @@ class Menu:
         # Check 'Users.db' database
         for index in range(len(characters)):
             if function == f"character{index + 1}":
-                if user_data[2] > index:  # Check user has unlocked character
+                if user_data[1] > index:  # Check user has unlocked character
                     character = f"{characters[index]} UNLOCKED"
                 else:
                     return None
@@ -67,7 +67,7 @@ class Menu:
         # Check 'Users.db' database
         for index in range(6):
             if function == f"level{index + 1}":
-                if user_data[3] > index:
+                if user_data[2] > index:
                     level = index + 1
                 else:
                     return None
@@ -109,16 +109,16 @@ class Menu:
             for image in group_handler.images:
                 if "character" in image.image_id:
                     user_data = user.get_data(user.get_username())
-                    if user_data[2] == 1:
+                    if user_data[1] == 1:
                         if int(image.image_id[-1]) in (1, 2, 4, 6):
                             image.show()
-                    if user_data[2] == 2:
+                    if user_data[1] == 2:
                         if int(image.image_id[-1]) in (1, 3, 4, 6):
                             image.show()
-                    if user_data[2] == 3:
+                    if user_data[1] == 3:
                         if int(image.image_id[-1]) in (1, 3, 5, 6):
                             image.show()
-                    if user_data[2] >= 4:
+                    if user_data[1] >= 4:
                         if int(image.image_id[-1]) in (1, 3, 5, 7):
                             image.show()
 
@@ -126,16 +126,16 @@ class Menu:
             for text in group_handler.display_texts:
                 if "locked" in text.function:
                     user_data = user.get_data(user.get_username())
-                    if user_data[3] == 2:
+                    if user_data[2] == 2:
                         if text.function in ("locked1"):
                             text.hide()
-                    if user_data[3] == 3:
+                    if user_data[2] == 3:
                         if text.function in ("locked1", "locked2"):
                             text.hide()
-                    if user_data[3] == 4:
+                    if user_data[2] == 4:
                         if text.function in ("locked1", "locked2", "locked3"):
                             text.hide()
-                    if user_data[3] >= 5:
+                    if user_data[2] >= 5:
                         if text.function in ("locked1", "locked2", "locked3", "locked4"):
                             text.hide()
 

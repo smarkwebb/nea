@@ -21,7 +21,7 @@ class User:
 
     def login(self):
         Database.create_table(self, "./Data/Players/Users.db", "users",
-                              "username STRING, password STRING, characters INTEGER, levels INTEGER")
+                              "username STRING, characters INTEGER, levels INTEGER")
 
         # Check valid username entered
         username = input("Enter username: ")
@@ -39,7 +39,7 @@ class User:
         # Create new user if not already exists
         if not user_exists:
             Database.insert_value(self, "./Data/Players/Users.db",
-                                      "users", username, "password", 1, 1)
+                                      "users", username, 1, 1)
             print(f"User account {username} created!")
 
         # Update 'CurrentUser.txt'

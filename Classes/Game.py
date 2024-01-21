@@ -33,7 +33,7 @@ class Game:
         # Update Users.db" database
         username = user.get_username()
         user_data = user.get_data(username)
-        if user_data[3] < current_level + 1:
+        if user_data[2] < current_level + 1:
             # Update character permissions
             database.update_value("./Data/Players/Users.db", "users", "characters", str(current_level + 1), "username", str(username))
 
