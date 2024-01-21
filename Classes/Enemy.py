@@ -83,7 +83,7 @@ class Enemy(pygame.sprite.Sprite):
         if self.direction == "right":
             if self.rect.right >= 1280:
                 self.direction = "left"
-                self.surf = pygame.image.load("./Assets/Sprites/Player LEFT.png")
+                self.surf = pygame.image.load("./Assets/Sprites/Enemy LEFT.png")
             else:
                 self.rect.x += self.movement_speed
 
