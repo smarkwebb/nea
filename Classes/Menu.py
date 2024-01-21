@@ -4,12 +4,21 @@ from Classes.GroupHandler import GroupHandler
 from Classes.ScoreHandler import ScoreHandler
 from Classes.User import User
 import pygame
+import os
 import sys
 
 
 class Menu:
     def __init__(self):
         self.hidden_on_start = False
+
+        if not os.path.exists("./Data/Levels/CurrentLevel.txt"):
+            file = open("./Data/Levels/CurrentLevel.txt", "w")
+            file.write("1")
+        
+        if not os.path.exists("./Data/Players/CurrentCharacter.txt"):
+            file = open("./Data/Players/CurrentCharacter.txt", "w")
+            file.write("Bob UNLOCKED")
 
     def mouse_event(self, database, game, group_handler, score_handler, user):
         # Handles mouse events
