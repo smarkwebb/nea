@@ -33,6 +33,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_ESCAPE]:
+                game.generate_level(group_handler, 0, score_handler)
         if event.type == pygame.MOUSEBUTTONDOWN:
             menu.mouse_event(database, game, group_handler, score_handler, user)
 
