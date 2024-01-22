@@ -49,7 +49,7 @@ while running:
     if group_handler.players:
         for player in group_handler.players:
             if player.health <= 0:
-                running = False
+                game.generate_level(group_handler, 0, score_handler)
 
     # Blit objects onto screen
     screen.fill((255, 255, 255))
