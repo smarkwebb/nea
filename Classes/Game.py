@@ -30,6 +30,12 @@ class Game:
         current_level = int(data[0])
         file.close()
 
+        if current_level + 1 > 5:
+            self.generate_level(group_handler, 0, score_handler)
+            current_score = score_handler.get_score()
+            database.insert_value("./Data/Players/Scores.db", f"level{current_level}", user.get_username(), current_score)
+            return 0
+
         # Update Users.db" database
         username = user.get_username()
         user_data = user.get_data(username)
