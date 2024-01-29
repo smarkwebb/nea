@@ -29,7 +29,7 @@ class DisplayText(pygame.sprite.Sprite):
         field = None
         for score in range(10):
             if self.function == f"score{score}":
-                field = score
+                field = score-1
         if field:
             database = Database()
             data = database.get_data(
@@ -53,8 +53,8 @@ class DisplayText(pygame.sprite.Sprite):
         field = None
         for score in range(10):
             if self.function == f"score{score}":
-                field = score
-        if field:
+                field = score-1
+        if field != None:
             database = Database()
             data = database.get_data(
                 "./Data/Players/Scores.db", f"level{level}", None)

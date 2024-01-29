@@ -34,6 +34,7 @@ class Game:
             self.generate_level(group_handler, 0, score_handler)
             current_score = score_handler.get_score()
             database.insert_value("./Data/Players/Scores.db", f"level{current_level}", user.get_username(), current_score)
+            print("Score added 2")
             return 0
 
         # Update Users.db" database
@@ -49,6 +50,7 @@ class Game:
         # Update 'Scores.db' database
         current_score = score_handler.get_score()
         database.insert_value("./Data/Players/Scores.db", f"level{current_level}", user.get_username(), current_score)
+        print("Score added!", current_score)
 
         # Update 'CurrentLevel.txt'
         file = open("./Data/Levels/CurrentLevel.txt", "w")

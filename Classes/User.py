@@ -28,6 +28,12 @@ class User:
         if len(username) < 3 or len(username) > 12:
             print("Username length invalid")
             return None
+        
+        symbols = ["!", "£", "$", "%", "^", "&", "*", ":", ";", "'", "#", "@", "~", "<", ">", ",", ".", "?", "/"]
+        for symbol in symbols:
+            if symbol in username:
+                print("Username contains characters")
+                return None
 
         # Check 'Users.db' for existing users
         users = Database.get_data(

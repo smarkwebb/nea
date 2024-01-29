@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
             if new_scale <= self.max_scale:
                 self.scale = new_scale
                 self.size = self.default_size * new_scale
-                pygame.transform.smoothscale_by(self.surf, new_scale)
+                pygame.transform.smoothscale_by(self.surf.convert_alpha(), new_scale)
                 self.rect = self.surf.get_rect(
                     bottomleft=(self.rect.bottomleft))
                 self.jump_height = self.jump_height / (new_scale / 1.5)
@@ -50,7 +50,7 @@ class Player(pygame.sprite.Sprite):
             if new_scale >= self.min_scale:
                 self.scale = new_scale
                 self.size = self.default_size * new_scale
-                pygame.transform.smoothscale_by(self.surf, new_scale)
+                pygame.transform.smoothscale_by(self.surf.convert_alpha(), new_scale)
                 self.rect = self.surf.get_rect(
                     bottomleft=(self.rect.bottomleft))
                 self.jump_height = self.jump_height / new_scale
